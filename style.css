@@ -1,0 +1,61 @@
+*{
+    font-family: 'Poppins', 'sans-serit';
+}
+body{
+    background-image: url(backimage.jpg);    
+    background-size: cover;
+}
+.card{
+    color: white;
+    width: 90%;
+    max-width: 450px;
+    backdrop-filter: blur(5px);
+    border: 3px solid white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px ;
+    margin: 100px auto 0px; 
+}
+.search{
+    margin: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.search input{
+    outline: 0;
+    width: 100%;
+   border: 0px;
+   border-radius: 20px;
+   justify-content: center;
+   height: 50px;
+   margin: 10px ;
+   padding: 2px 2px 2px;
+
+}
+.search button{
+    margin-right: 20px;
+    color: black;
+    width: 50px;
+    height: 50px;
+    outline: 0;
+    border-radius: 10px;
+}
+.weather-image{
+    width: 35%;
+    height: 150px;
+}
+.temp{
+    font-size: 40px;
+}
+.last{
+    height: 80px;
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+.last i{
+    font-size: 30px;
+}
