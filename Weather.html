@@ -12,13 +12,16 @@
     <div class="card">
         <div class="search">
             <input type="text" placeholder="Select the name of city">
-            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button id="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            
         </div>
-        <div class="wheather">
+        <p class ="invalid">Invalid Input</p>
+        <div class="weather">
             <img src="sunny.png" alt="sunny image" class="weather-image">
-            <div class="temp">22°C</div>
-        </div>
-        <div class="last">
+            <div class="temp"></div>
+            <div class="cityname">Banglore</div>
+
+            <div class="last">
             <div class="wind">
                 <i class="fa-solid fa-wind"></i>
                 <span>22km/hr</span>
@@ -31,7 +34,10 @@
                 <p> Humidity</p>
             </div>
         </div>
+        </div>
+        
     </div>
 
 </body>
+<script src="script.js"></script>
 </html>

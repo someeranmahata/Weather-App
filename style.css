@@ -7,7 +7,7 @@ body{
 }
 .card{
     color: white;
-    width: 90%;
+    width: 400px;
     max-width: 450px;
     backdrop-filter: blur(5px);
     border: 3px solid white;
@@ -58,4 +58,12 @@ body{
 }
 .last i{
     font-size: 30px;
+}
+.weather{
+    display: none;
+}
+.invalid{
+    margin-left: 20px;
+    text-align: left;
+
 }
