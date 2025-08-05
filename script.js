@@ -31,7 +31,7 @@ async function CheckWeather(city){
     else if(data.weather[0].main == "Clear"){
         imageicon.src = "sunny.png";
     }
-    else if(data.weather[0].main == "Rainy"){
+    else if(data.weather[0].main == "Rain"){
         imageicon.src = "rainy-day.png";
     }
     else if(data.weather[0].main == "Snow"){
