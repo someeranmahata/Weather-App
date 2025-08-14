@@ -1,46 +1,54 @@
 const apikey = "8435ed666356c72a0b683d25774e5d44";
 const apiurl = "https://api.openweathermap.org/data/2.5/weather?units=metric";
+
 const btnclick = document.querySelector("#btn");
 const search = document.querySelector(".search input");
 const imageicon = document.querySelector(".weather-image");
 
+// Handle button click
 btnclick.onclick = () => {
     const city = search.value.trim();
-    if (city === "") {
+
+    if (!city) {
         alert("Please enter a city name");
         return;
     }
+
     CheckWeather(city);
-}
+};
 
 async function CheckWeather(city) {
     try {
         const response = await fetch(`${apiurl}&q=${city}&appid=${apikey}`);
 
-        if (response.status === 404) {
+        if (!response.ok) {
+            // Handle city not found (404) or invalid API key (401)
             document.querySelector(".invalid").style.display = "block";
             document.querySelector(".weather").style.display = "none";
-            return; // Stop execution here
+            return;
         }
 
         const data = await response.json();
 
-        document.querySelector(".temp").innerHTML = data.main.temp + "°C";
+        // Update UI
+        document.querySelector(".temp").innerHTML = `${data.main.temp}°C`;
         document.querySelector(".cityname").innerHTML = city;
-        document.querySelector(".wind span").innerHTML = data.wind.speed + "Km/h";
-        document.querySelector(".humidity span").innerHTML = data.main.humidity + "%";
+        document.querySelector(".wind span").innerHTML = `${data.wind.speed} Km/h`;
+        document.querySelector(".humidity span").innerHTML = `${data.main.humidity}%`;
 
-        // Change image according to weather
-        if (data.weather[0].main === 'Clouds') {
+        // Change weather image
+        const condition = data.weather[0].main;
+        if (condition === 'Clouds') {
             imageicon.src = "cloudy.png";
-        } else if (data.weather[0].main === "Clear") {
+        } else if (condition === "Clear") {
             imageicon.src = "sunny.png";
-        } else if (data.weather[0].main === "Rain") {
+        } else if (condition === "Rain") {
             imageicon.src = "rainy-day.png";
-        } else if (data.weather[0].main === "Snow") {
+        } else if (condition === "Snow") {
             imageicon.src = "snow.png";
         }
 
+        // Show weather box
         document.querySelector(".invalid").style.display = "none";
         document.querySelector(".weather").style.display = "block";
 
